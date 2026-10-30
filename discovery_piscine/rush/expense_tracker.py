@@ -13,6 +13,8 @@ def get_item_name(prompt="Item name: "):
         name = input(prompt).strip()
         if name == "":
             print("Error: item name cannot be empty.")
+        elif len(name) > 20:
+            print("Error: item name must be 20 characters or less.")
         else:
             return name
 
@@ -192,6 +194,8 @@ def set_budget():
     print(f"Current budget: {settings['budget']:.2f} THB")
     settings["budget"] = get_amount("New monthly budget (THB): ")
     print("Budget updated.")
+    if calculate_total() > settings["budget"]:
+        print("Warning: you have already spent more than this budget!")
 
 # --- Main Menu ---
 
