@@ -31,7 +31,7 @@ Open a terminal, go to the `rush` folder, then run the program:
 
 ```
 cd rush
-python3 main.py
+python3 expense_tracker.py
 ```
 
 The main menu appears:

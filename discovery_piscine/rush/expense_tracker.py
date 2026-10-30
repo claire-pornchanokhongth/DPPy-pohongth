@@ -38,6 +38,7 @@ def get_amount(prompt):
         except ValueError:
             print("Error: please type a number, e.g. 120 or 45.50")
             continue
+        amount = round(amount, 2)
         if amount > 0 and amount <= 1000000:
             return amount
         else:
@@ -51,7 +52,7 @@ def choose_expense():
         return -1
     view_expenses()
     text = input("Expense number: ").strip()
-    if not text.isdigit():
+    if not text.isdecimal():
         print("Error: please type a number from the list.")
         return -1
     number = int(text)
@@ -68,17 +69,17 @@ def calculate_total():
     total = 0
     for expense in expenses:
         total = total + expense["amount"]
-    return total
+    return round(total, 2)
 
 ## To check if it is still within the budget.
 
 def confirm_if_over_budget(extra):
-    new_total = calculate_total() + extra
-    if new_total > settings["budget"]:
+    new_total = round(calculate_total() + extra, 2)
+    if extra > 0 and new_total > settings["budget"]:
         over = new_total - settings["budget"]
         print(f"Warning: this puts you {over:.2f} THB over your budget!")
         answer = input("Save anyway? (y/n): ").strip().lower()
-        if answer == "y":
+        if answer == "y" or answer == "yes":
             return True
         else:
             print("Cancelled. Nothing was saved.")
@@ -94,7 +95,7 @@ def total_by_category():
     for expense in expenses:
         category = expense["category"]
         totals[category] = totals[category] + expense["amount"]
-    return totals
+    return round(total, 2)
 
 ## To see what is the biggest expense.
 
