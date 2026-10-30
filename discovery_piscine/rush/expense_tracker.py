@@ -97,7 +97,7 @@ def total_by_category():
     for expense in expenses:
         category = expense["category"]
         totals[category] = totals[category] + expense["amount"]
-    return round(total, 2)
+    return totals
 
 ## To see what is the biggest expense.
 
