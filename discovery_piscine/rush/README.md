@@ -11,7 +11,7 @@ A terminal app that helps you record daily spending, see where your money goes, 
 ## Business rules
 1. Amount must be a number more than 0 and at most 1,000,000 THB (letters, zero and negatives are rejected)
 2. Category must be one of: food, transport, shopping, bills, other
-3. If adding or updating an expense pushes the total over budget, the app warns you and only saves it if you type `y`
+3. If adding or updating an expense pushes the total over budget, the app warns you and only saves it if you type `y` or `yes`
 
 ## Data processing
 1. Total spent per category, with its % of total spending
@@ -27,12 +27,69 @@ A terminal app that helps you record daily spending, see where your money goes, 
 - No extra libraries are needed
 
 ## 2. Starting the program
-Open a terminal, go to the `rush` folder, then run the program:
+
+### Step 1: Check that Python 3 is installed
+Open a terminal and type:
 
 ```
-cd rush
+python3 --version
+```
+
+You should see something like `Python 3.x.x`. If you see `command not found`, install Python 3 first.
+
+### Step 2: Get the project (skip if you already have it)
+
+```
+git clone <repository-url>
+```
+
+This creates a folder named `DPPy-pohongth` in the folder your terminal is currently in.
+
+### Step 3: Go to the `rush` folder
+The program is inside `DPPy-pohongth/discovery_piscine/rush`. First, check where you are:
+
+```
+pwd
+```
+
+`pwd` prints the folder your terminal is currently in. Then use the matching command:
+
+| `pwd` ends with... | Command to type |
+|---|---|
+| `/rush` | Nothing, you are already in the right folder |
+| `/discovery_piscine` | `cd rush` |
+| `/DPPy-pohongth` | `cd discovery_piscine/rush` |
+| Anything else (e.g. your home folder or Desktop) | `cd <path-to>/DPPy-pohongth/discovery_piscine/rush`, replacing `<path-to>` with where you saved the project |
+
+For example, if you cloned the project onto your Desktop:
+
+```
+cd ~/Desktop/DPPy-pohongth/discovery_piscine/rush
+```
+
+Tip: if you are unsure, type `cd ` (with a space), then drag the `rush` folder from Finder or File Explorer into the terminal window and press **Enter**. The full path is filled in for you.
+
+### Step 4: Check that you are in the right folder
+
+```
+ls
+```
+
+You should see these three files:
+
+```
+README.md  auteur  expense_tracker.py
+```
+
+If you do not see `expense_tracker.py`, you are in the wrong folder; go back to Step 3.
+
+### Step 5: Run the program
+
+```
 python3 expense_tracker.py
 ```
+
+If you see `No such file or directory`, the terminal is not in the `rush` folder; go back to Step 3.
 
 The main menu appears:
 
